@@ -1,0 +1,18 @@
+{% comment %}
+  Aviso de cookies + carga de Google Analytics (solo si el visitante acepta).
+  Solo se activa si en _config.yml se rellena "google_analytics".
+{% endcomment %}
+{% if site.google_analytics != "" and site.google_analytics %}
+<div id="aviso-cookies" class="aviso-cookies" role="dialog" aria-labelledby="aviso-cookies-texto" hidden
+     data-ga="{{ site.google_analytics }}">
+  <p id="aviso-cookies-texto">
+    {{ ui.cookies_text }}
+    <a href="{{ ui.cookies_url | relative_url }}">{{ ui.cookies_more }}</a>
+  </p>
+  <div class="aviso-cookies-botones">
+    <button type="button" data-cookies="no">{{ ui.cookies_reject }}</button>
+    <button type="button" data-cookies="si" class="primario">{{ ui.cookies_accept }}</button>
+  </div>
+</div>
+<script src="{{ '/assets/js/cookies.js' | relative_url }}"></script>
+{% endif %}

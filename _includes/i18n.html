@@ -6,7 +6,12 @@
   que el archivo esté en la carpeta correcta (es/ o en/), que es justo
   donde lo deja el panel /admin.
 {% endcomment %}
-{% assign path_parts = page.relative_path | split: "/" %}
+{% comment %}
+  Las páginas normales de Jekyll (es/*.md, en/*.md) no tienen "relative_path",
+  solo "path"; los documentos de colecciones tienen ambos. Se usa el que exista.
+{% endcomment %}
+{% assign ruta_archivo = page.relative_path | default: page.path %}
+{% assign path_parts = ruta_archivo | split: "/" %}
 {% if path_parts contains "en" %}
   {% assign lang = "en" %}
 {% else %}

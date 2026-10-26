@@ -25,5 +25,6 @@
 
   <p class="footer-bottom">
     &copy; {{ 'now' | date: "%Y" }} AMPA Carlos III Aranjuez — {{ ui.footer_rights }}
+    · <a href="{{ ui.cookies_url | relative_url }}">{{ ui.cookies_policy }}</a>{% if site.google_analytics != "" and site.google_analytics %} · <a href="#" data-cookies-abrir>{{ ui.cookies_settings }}</a>{% endif %}
   </p>
 </footer>

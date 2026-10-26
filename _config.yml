@@ -16,6 +16,11 @@ description: "Asociación de Madres y Padres de Alumnos del CEIP Carlos III de A
 url: ""
 baseurl: "/ampa-carlos3"
 
+# EDITABLE: identificador de Google Analytics 4 (empieza por "G-", por ejemplo
+# "G-ABC123XYZ9"). Mientras esté vacío, no se carga nada de Google y no
+# aparece el aviso de cookies.
+google_analytics: "G-73QR4E91WK"
+
 lang_default: es
 
 # --- Colecciones bilingües -------------------------------
