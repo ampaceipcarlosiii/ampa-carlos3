@@ -1,0 +1,9 @@
+---
+sitemap: false
+---
+# BORRADOR: mientras la web esté en revisión no queremos que salga en Google.
+# Al publicarla de verdad, cambiad "Disallow: /" por "Allow: /" y quitad el noindex de _layouts/default.html
+User-agent: *
+Disallow: /
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

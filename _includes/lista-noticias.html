@@ -1,0 +1,26 @@
+{% comment %}
+  Lista de noticias con scroll infinito. Uso: {% include lista-noticias.html idioma="es" %}
+  Cada tarjeta enseña foto (si la noticia tiene cartel), fecha, título y un
+  resumen corto de las primeras palabras del texto.
+{% endcomment %}
+{% include i18n.html %}
+{% assign filtro = "/" | append: include.idioma | append: "/" %}
+{% assign noticias = site.noticias | where_exp: "n", "n.relative_path contains filtro" | sort: "date" | reverse %}
+<ol class="noticias-lista" data-lote="6" data-fin="{% if include.idioma == 'en' %}You have reached the end.{% else %}Has llegado al final.{% endif %}">
+  {% for noticia in noticias %}
+  <li class="noticia-tarjeta{% unless noticia.imagen %} sin-imagen{% endunless %}">
+    <a href="{{ noticia.url | relative_url }}">
+      {% if noticia.imagen %}
+      <img src="{{ noticia.imagen | relative_url }}" alt="" loading="lazy">
+      {% endif %}
+      <span class="tarjeta-texto">
+        <span class="fecha">{{ noticia.date | date: "%d/%m/%Y" }}</span>
+        <strong class="tarjeta-titulo">{{ noticia.title }}</strong>
+        <span class="resumen">{{ noticia.content | replace: "</li>", " </li>" | replace: "</p>", " </p>" | replace: "</h2>", " </h2>" | strip_html | strip_newlines | strip | truncatewords: 22 }}</span>
+        <span class="leer-mas">{{ ui.read_more }} →</span>
+      </span>
+    </a>
+  </li>
+  {% endfor %}
+</ol>
+<script src="{{ '/assets/js/noticias.js' | relative_url }}"></script>

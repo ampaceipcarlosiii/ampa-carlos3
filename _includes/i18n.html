@@ -1,0 +1,27 @@
+{% comment %}
+  Partial compartido: detecta el idioma de la página actual a partir de
+  la carpeta en la que vive el archivo ("es/..." o ".../es/...", o "en/..")
+  y calcula el menú, los textos de interfaz y el enlace de "cambiar
+  idioma". No hace falta rellenar ningún campo de idioma a mano: basta con
+  que el archivo esté en la carpeta correcta (es/ o en/), que es justo
+  donde lo deja el panel /admin.
+{% endcomment %}
+{% assign path_parts = page.relative_path | split: "/" %}
+{% if path_parts contains "en" %}
+  {% assign lang = "en" %}
+{% else %}
+  {% assign lang = "es" %}
+{% endif %}
+
+{% assign nav = site.data.nav_es %}
+{% assign ui = site.data.ui_es %}
+{% assign other_lang_code = "en" %}
+{% assign other_lang_home = "/en/" %}
+{% if lang == "en" %}
+  {% assign nav = site.data.nav_en %}
+  {% assign ui = site.data.ui_en %}
+  {% assign other_lang_code = "es" %}
+  {% assign other_lang_home = "/es/" %}
+{% endif %}
+{% assign lang_switch_url = page.alt_lang_url | default: other_lang_home %}
+{% assign home_url = lang | prepend: "/" | append: "/" %}

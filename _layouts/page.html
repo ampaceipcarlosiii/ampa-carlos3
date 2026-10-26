@@ -1,0 +1,47 @@
+---
+layout: default
+---
+{% include i18n.html %}
+<article class="page">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+
+  {% if page.show_junta %}
+  {% comment %}
+    Tabla de la Junta Directiva. Vive aquí (en la plantilla), no en el
+    texto editable de la página, para que nadie pueda romperla sin
+    querer desde el panel /admin. Los datos reales se editan en el
+    panel, apartado "Junta Directiva" (o en _data/junta.yml).
+  {% endcomment %}
+  <h2>{% if lang == "en" %}Board of Directors{% else %}Junta Directiva{% endif %}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>{% if lang == "en" %}Role{% else %}Cargo{% endif %}</th>
+        <th>{% if lang == "en" %}Name{% else %}Nombre{% endif %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for persona in site.data.junta.miembros %}
+      <tr>
+        <td>{% if lang == "en" %}{{ persona.cargo_en }}{% else %}{{ persona.cargo_es }}{% endif %}</td>
+        <td>{{ persona.nombre }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% if page.show_estatutos_link %}
+  <h2>{% if lang == "en" %}Bylaws{% else %}Estatutos{% endif %}</h2>
+  <p>
+    {% if lang == "en" %}
+      The association's bylaws are available here:
+      <a href="{{ '/assets/docs/estatutos-ampa.pdf' | relative_url }}">AMPA bylaws (PDF)</a>.
+    {% else %}
+      Podéis consultar los estatutos de la asociación en el siguiente documento:
+      <a href="{{ '/assets/docs/estatutos-ampa.pdf' | relative_url }}">Estatutos del AMPA (PDF)</a>.
+    {% endif %}
+  </p>
+  {% endif %}
+</article>

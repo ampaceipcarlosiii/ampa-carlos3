@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ home_url | relative_url }}">
+      <img src="{{ '/assets/img/logo-ampa.png' | relative_url }}" alt="AMPA Carlos III Aranjuez" class="logo">
+      <span class="brand-text">AMPA Carlos III</span>
+    </a>
+
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">{{ ui.menu_label }}</span>
+      <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="{{ ui.main_nav_label }}">
+      <ul>
+        {% for item in nav %}
+        <li>
+          <a href="{{ item.url | relative_url }}"
+             {% if page.url == item.url %}aria-current="page"{% endif %}>
+            {{ item.text }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <a class="lang-switch" href="{{ lang_switch_url | relative_url }}" hreflang="{{ other_lang_code }}" lang="{{ other_lang_code }}">
+        {{ ui.lang_switch_label }}
+      </a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,90 @@
+# Configuración del panel de administración (Decap CMS).
+# Solo hay que tocar las dos líneas marcadas EDITABLE, una vez.
+backend:
+  name: github
+  repo: USUARIO/NOMBRE-DEL-REPO            # EDITABLE: tu-usuario/nombre-del-repo
+  branch: main
+  base_url: https://URL-DEL-PUENTE.workers.dev  # EDITABLE: URL del Worker de Cloudflare
+
+locale: es
+media_folder: assets/img/uploads
+public_folder: /assets/img/uploads
+
+i18n:
+  structure: multiple_folders
+  locales: [es, en]
+  default_locale: es
+
+collections:
+  - name: noticias
+    label: Noticias
+    label_singular: Noticia
+    folder: _noticias
+    create: true
+    extension: md
+    format: frontmatter
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Título, widget: string, i18n: true }
+      - { name: date, label: Fecha, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", i18n: duplicate }
+      - { name: imagen, label: "Cartel o imagen (opcional)", widget: image, required: false, i18n: duplicate }
+      - { name: imagen_descripcion, label: "Descripción de la imagen (para quien no pueda verla)", widget: string, required: false, i18n: true }
+      - { name: body, label: Texto, widget: markdown, i18n: true }
+
+  - name: actividades
+    label: Extraescolares
+    label_singular: Actividad
+    folder: _actividades
+    create: true
+    extension: md
+    format: frontmatter
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Nombre de la actividad, widget: string, i18n: true }
+      - { name: etapas, label: Etapa, widget: select, multiple: true, options: [{ label: Infantil, value: infantil }, { label: Primaria, value: primaria }, { label: Adultos, value: adultos }], i18n: duplicate }
+      - { name: etiquetas, label: Etiquetas, widget: select, multiple: true, required: false, options: [{ label: "Actividad nueva", value: nuevo }, { label: "Pendiente de mínimo de inscritos", value: minimo }], i18n: duplicate }
+      - { name: horario, label: Horario, widget: string, i18n: true }
+      - { name: precio, label: "Precio (socios / no socios)", widget: string, required: false, i18n: true }
+      - { name: lugar, label: Lugar, widget: string, required: false, i18n: true }
+      - { name: imparte, label: "Quién la imparte", widget: string, required: false, i18n: true }
+      - name: carteles
+        label: Carteles (imágenes)
+        widget: list
+        required: false
+        i18n: true
+        summary: "{{fields.descripcion}}"
+        fields:
+          - { name: imagen, label: Imagen del cartel, widget: image }
+          - { name: descripcion, label: "Descripción de la imagen (para personas que no pueden verla)", widget: string }
+      - { name: body, label: Descripción, widget: markdown, i18n: true }
+
+  - name: paginas
+    label: Páginas del sitio
+    files:
+      - { name: inicio_es, label: "Inicio (ES)", file: es/index.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: inicio_en, label: "Home (EN)", file: en/index.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: quienes_es, label: "Quiénes somos (ES)", file: es/quienes-somos.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: quienes_en, label: "About us (EN)", file: en/about-us.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: socio_es, label: "Hazte socio (ES)", file: es/hazte-socio.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: socio_en, label: "Join us (EN)", file: en/join-us.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: faq_es, label: "Preguntas frecuentes (ES)", file: es/faq.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: faq_en, label: "FAQ (EN)", file: en/faq.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: contacto_es, label: "Contacto (ES)", file: es/contacto.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: contacto_en, label: "Contact (EN)", file: en/contact.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+
+  - name: junta
+    label: Junta Directiva
+    files:
+      - name: junta
+        label: Miembros de la Junta
+        file: _data/junta.yml
+        fields:
+          - name: miembros
+            label: Miembros
+            widget: list
+            fields:
+              - { name: cargo_es, label: Cargo (español), widget: string }
+              - { name: cargo_en, label: Cargo (inglés), widget: string }
+              - { name: nombre, label: Nombre y apellidos, widget: string }

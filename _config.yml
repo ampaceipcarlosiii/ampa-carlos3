@@ -1,0 +1,68 @@
+# =========================================================
+# Configuración del sitio — AMPA Carlos III (Aranjuez)
+# =========================================================
+# IMPORTANTE para quien mantenga la web sin ayuda técnica:
+# Este archivo casi nunca hay que tocarlo. Las excepciones están
+# marcadas con "EDITABLE" más abajo. El resto es la "fontanería"
+# que hace que la web funcione en los dos idiomas.
+
+title: "AMPA Carlos III Aranjuez"
+description: "Asociación de Madres y Padres de Alumnos del CEIP Carlos III de Aranjuez"
+
+# EDITABLE: cuando publiquéis en GitHub Pages, poned aquí la URL final.
+# Ejemplo si el repositorio se llama "ampa-carlos3":
+#   url: "https://vuestro-usuario.github.io"
+#   baseurl: "/ampa-carlos3"
+url: ""
+baseurl: "/ampa-carlos3"
+
+lang_default: es
+
+# --- Colecciones bilingües -------------------------------
+# Cada noticia/actividad vive en una carpeta "es/" y otra "en/"
+# DENTRO de la misma colección (ej: _noticias/es/mi-noticia.md y
+# _noticias/en/mi-noticia.md, mismo nombre de archivo). El panel de
+# administración (/admin) ya crea los archivos así solo.
+# El idioma de cada página se detecta automáticamente a partir de en
+# qué carpeta "es/" o "en/" vive el archivo — no hay que rellenar
+# ningún campo de idioma a mano.
+collections:
+  noticias:
+    output: true
+    permalink: /noticias/:path/
+  actividades:
+    output: true
+    permalink: /actividades/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "noticias"
+    values:
+      layout: noticia
+  - scope:
+      path: ""
+      type: "actividades"
+    values:
+      layout: actividad
+  - scope:
+      path: "es"
+    values:
+      layout: page
+  - scope:
+      path: "en"
+    values:
+      layout: page
+
+# Plugins soportados de forma nativa por GitHub Pages (no requieren nada raro)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - admin   # el panel de edición se activa más adelante; quitad esta línea entonces
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{% include i18n.html %}
+{% if lang == "en" %}
+  {% assign back_url = "/en/activities/" %}
+  {% assign lang_switch_url = "/actividades/es/" | append: page.name | append: "/" %}
+{% else %}
+  {% assign back_url = "/es/extraescolares/" %}
+  {% assign lang_switch_url = "/actividades/en/" | append: page.name | append: "/" %}
+{% endif %}
+{% comment %}
+  page.name = el nombre del archivo de esta actividad (sin extensión).
+  Como el panel /admin guarda el mismo nombre de archivo en es/ y en/,
+  el enlace al otro idioma se calcula solo: no hace falta rellenar
+  ningún campo a mano.
+{% endcomment %}
+
+<article class="actividad">
+  <h1>{{ page.title }}</h1>
+
+  {% if page.etiquetas %}
+  <p class="etiquetas">
+    {% if page.etiquetas contains "nuevo" %}<span class="etiqueta">{% if lang == "en" %}New{% else %}Nueva{% endif %}</span>{% endif %}
+    {% if page.etiquetas contains "minimo" %}<span class="etiqueta etiqueta-aviso">{% if lang == "en" %}Minimum sign-ups needed{% else %}Pendiente de mínimo de inscritos{% endif %}</span>{% endif %}
+  </p>
+  {% endif %}
+
+  <dl class="ficha-actividad">
+    {% if page.etapas %}
+    <dt>{% if lang == "en" %}Stage{% else %}Etapa{% endif %}</dt>
+    <dd>{% for e in page.etapas %}{% if e == "infantil" %}Infantil{% if lang == "en" %} (pre-school){% endif %}{% elsif e == "primaria" %}{% if lang == "en" %}Primary{% else %}Primaria{% endif %}{% elsif e == "adultos" %}{% if lang == "en" %}Adults{% else %}Adultos{% endif %}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
+    {% endif %}
+    {% if page.horario %}<dt>{% if lang == "en" %}Schedule{% else %}Horario{% endif %}</dt><dd>{{ page.horario }}</dd>{% endif %}
+    {% if page.precio %}<dt>{% if lang == "en" %}Price{% else %}Precio{% endif %}</dt><dd>{{ page.precio | replace: " · ", "<br>" }}</dd>{% endif %}
+    {% if page.lugar %}<dt>{% if lang == "en" %}Where{% else %}Lugar{% endif %}</dt><dd>{{ page.lugar }}</dd>{% endif %}
+    {% if page.imparte %}<dt>{% if lang == "en" %}Run by{% else %}Imparte{% endif %}</dt><dd>{{ page.imparte }}</dd>{% endif %}
+  </dl>
+
+  {{ content }}
+
+  {% if page.carteles %}
+  <div class="carteles">
+    {% for c in page.carteles %}
+    <figure class="cartel">
+      <a href="{{ c.imagen | relative_url }}" target="_blank" rel="noopener">
+        <img src="{{ c.imagen | relative_url }}" alt="{{ c.descripcion | escape }}" loading="lazy">
+      </a>
+      <figcaption>{% if lang == "en" %}Click the image to see it full size.{% else %}Pulsa en la imagen para verla a tamaño completo.{% endif %}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <p class="volver"><a href="{{ back_url | relative_url }}">← {{ ui.back_to_activities }}</a></p>
+</article>

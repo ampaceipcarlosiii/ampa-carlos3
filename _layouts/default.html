@@ -1,0 +1,28 @@
+{% include i18n.html %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}AMPA Carlos III Aranjuez</title>
+  <!-- BORRADOR: quitar la línea siguiente cuando la web se dé por definitiva -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/img/logo-ampa.png' | relative_url }}">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">{{ ui.skip_link }}</a>
+
+  {% include header.html %}
+
+  <main id="main-content" tabindex="-1">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+</body>
+</html>
