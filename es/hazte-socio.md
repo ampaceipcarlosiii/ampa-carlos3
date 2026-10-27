@@ -11,7 +11,7 @@ alt_lang_url: /en/join-us/
 
 ## Ventajas de ser socio
 
-- Acceso a las actividades extraescolares organizadas por el AMPA.
+- Acceso con descuento a las actividades extraescolares organizadas por el AMPA.
 - Descuentos en actividades y eventos puntuales.
 - Participación con voz y voto en la asamblea general.
 - Información directa de todo lo relacionado con el AMPA y el colegio.

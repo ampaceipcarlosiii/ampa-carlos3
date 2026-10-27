@@ -22,4 +22,4 @@ Puedes cambiar de opinión cuando quieras con el enlace «Configurar cookies» d
 
 <!-- EDITABLE: completad con los datos del responsable (AMPA Carlos III Aranjuez)
      y el correo de contacto para ejercer derechos de protección de datos. -->
-**Responsable:** AMPA del CEIP Carlos III de Aranjuez. Para cualquier duda sobre tus datos, escríbenos a ampacarlosiiiaranjuez@gmail.com.
+**Responsable:** AMPA del CEIP Carlos III de Aranjuez. Para cualquier duda sobre tus datos, escríbenos a ampacarlosiii@hotmail.es.

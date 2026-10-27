@@ -20,4 +20,4 @@ Google may process this data on its servers. More information in [Google's priva
 
 You can change your mind at any time with the "Cookie settings" link in the footer, or by deleting cookies in your browser settings.
 
-**Controller:** AMPA of CEIP Carlos III de Aranjuez. For any question about your data, write to ampacarlosiiiaranjuez@gmail.com.
+**Controller:** AMPA of CEIP Carlos III de Aranjuez. For any question about your data, write to ampacarlosiii@hotmail.es.

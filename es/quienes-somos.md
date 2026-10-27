@@ -7,8 +7,7 @@ show_junta: true
 ---
 
 El AMPA (Asociación de Madres y Padres de Alumnos) del CEIP Carlos III es
-una entidad sin ánimo de lucro formada por las familias del colegio. Su
-objetivo es representar los intereses de las familias, colaborar con el
+una entidad sin ánimo de lucro formada por más de 200 familias del colegio. Nuestro objetivo es representar los intereses de las familias, colaborar con el
 centro y organizar actividades que enriquezcan la vida escolar.
 
 ## Qué hacemos

@@ -7,7 +7,7 @@ show_junta: true
 ---
 
 The AMPA (Parents' Association) of CEIP Carlos III is a non-profit
-organisation formed by the school's families. Its goal is to represent
+organisation formed by more than 200 of the school's families. Our goal is to represent
 families' interests, work together with the school and organise
 activities that enrich school life.
 

@@ -100,7 +100,7 @@ textarea:focus-visible {
   text-decoration: none;
   color: var(--texto);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
 }
 .brand:hover { color: var(--rojo); }
 .brand .logo { height: 48px; width: auto; }
@@ -172,18 +172,26 @@ textarea:focus-visible {
 }
 
 @media (max-width: 780px) {
-  .nav-toggle { display: inline-block; }
-  .site-nav {
+  /* En móvil el botón de idioma queda siempre visible, junto al botón del
+     menú; solo la lista de páginas se despliega. */
+  .site-nav { display: contents; }
+  .brand { order: 1; font-size: 1.05rem; min-width: 0; flex: 1 1 0; }
+  .header-inner { gap: 0.5rem; }
+  .brand { gap: 0.5rem; }
+  .brand .logo { height: 42px; }
+  .brand-text { line-height: 1.2; }
+  .site-nav a.lang-switch { order: 2; padding: 0.3rem 0.85rem; font-size: 0.95rem; }
+  .nav-toggle { display: inline-block; order: 3; margin-left: 0; padding: 0.2rem 0.6rem; }
+  .site-nav ul {
     display: none;
+    order: 4;
     flex-basis: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 0.5rem;
     border-top: 1px solid var(--borde);
     padding-top: 0.75rem;
   }
-  .site-nav.abierto { display: flex; }
-  .site-nav ul { flex-direction: column; gap: 0.5rem; }
-  .site-nav a.lang-switch { margin-top: 0.5rem; }
+  .site-nav.abierto ul { display: flex; }
 }
 
 /* ---------- Contenido ---------- */

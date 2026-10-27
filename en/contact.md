@@ -6,7 +6,7 @@ alt_lang_url: /es/contacto/
 
 <p>
   <strong>Email:</strong>
-  <a href="mailto:ampacarlosiiiaranjuez@gmail.com">ampacarlosiiiaranjuez@gmail.com</a>
+  <a href="mailto:ampacarlosiii@hotmail.es">ampacarlosiii@hotmail.es</a>
 </p>
 
 <p>

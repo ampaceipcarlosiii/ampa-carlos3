@@ -69,6 +69,8 @@ collections:
       - { name: quienes_en, label: "About us (EN)", file: en/about-us.md, fields: [{ name: body, label: Texto, widget: markdown }] }
       - { name: socio_es, label: "Hazte socio (ES)", file: es/hazte-socio.md, fields: [{ name: body, label: Texto, widget: markdown }] }
       - { name: socio_en, label: "Join us (EN)", file: en/join-us.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: deportes_es, label: "Deportes (ES)", file: es/deportes.md, fields: [{ name: body, label: Texto, widget: markdown }] }
+      - { name: deportes_en, label: "Sports (EN)", file: en/sports.md, fields: [{ name: body, label: Texto, widget: markdown }] }
       - { name: faq_es, label: "Preguntas frecuentes (ES)", file: es/faq.md, fields: [{ name: body, label: Texto, widget: markdown }] }
       - { name: faq_en, label: "FAQ (EN)", file: en/faq.md, fields: [{ name: body, label: Texto, widget: markdown }] }
       - { name: contacto_es, label: "Contacto (ES)", file: es/contacto.md, fields: [{ name: body, label: Texto, widget: markdown }] }

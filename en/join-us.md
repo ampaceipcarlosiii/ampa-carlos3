@@ -11,7 +11,7 @@ alt_lang_url: /es/hazte-socio/
 
 ## Member benefits
 
-- Access to extracurricular activities organised by the AMPA.
+- Discounted access to the extracurricular activities organised by the AMPA.
 - Discounts on selected activities and events.
 - Voice and vote at the general assembly.
 - Direct updates on everything related to the AMPA and the school.
